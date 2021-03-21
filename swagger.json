@@ -1,0 +1,27 @@
+{
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {},
+		"securitySchemes": {}
+	},
+	"info": {
+		"title": "pent",
+		"version": "0.0.0",
+		"description": "TypeScript + Express API Server",
+		"license": {
+			"name": "ISC"
+		},
+		"contact": {}
+	},
+	"openapi": "3.0.0",
+	"paths": {},
+	"servers": [
+		{
+			"url": "/"
+		}
+	]
+}
