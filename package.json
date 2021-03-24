@@ -4,6 +4,7 @@
   "description": "Prisma + Express + Node + TypeScript",
   "author": "",
   "license": "ISC",
+  "main": "build/src/server.js",
   "scripts": {
     "start": "npm run build && cross-env NODE_ENV=production node build/server.js",
     "dev": "cross-env NODE_ENV=development concurrently \"nodemon\" \"nodemon -x tsoa spec-and-routes\"",

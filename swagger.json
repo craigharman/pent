@@ -9,9 +9,9 @@
 		"securitySchemes": {}
 	},
 	"info": {
-		"title": "pent",
+		"title": "PENT",
 		"version": "0.0.0",
-		"description": "TypeScript + Express API Server",
+		"description": "Prisma + Expiress + Node + TypeScript API Server",
 		"license": {
 			"name": "ISC"
 		},

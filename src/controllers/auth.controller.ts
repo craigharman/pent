@@ -22,6 +22,8 @@ export class AuthController extends Controller {
     }
   };
 
+  @SuccessResponse('200', 'Logged in')
+  @Post('login')
   public logIn = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       const userData: CreateUserDto = req.body;
@@ -34,6 +36,8 @@ export class AuthController extends Controller {
     }
   };
 
+  @Post('logout')
+  @SuccessResponse('200', 'Logged out')
   public logOut = async (req: RequestWithUser, res: Response, next: NextFunction): Promise<void> => {
     try {
       const userData: User = req.user;
