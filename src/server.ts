@@ -1,9 +1,24 @@
-import 'dotenv/config';
-import App from './app';
-import validateEnv from './utils/validateEnv';
+// import './controllers/accountsController';
+// import './controllers/usersController';
+import * as bodyParser from 'body-parser'
+import * as express from 'express'
+import * as methodOverride from 'method-override'
 
-validateEnv();
+import { RegisterRoutes } from './routes'
 
-const app = new App();
+const app = express()
 
-app.listen();
+app.use('/docs', express.static(__dirname + '/swagger-ui'))
+app.use('/swagger.json', (req, res) => {
+  res.sendFile(__dirname + '/swagger.json')
+})
+
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
+app.use(methodOverride())
+
+RegisterRoutes(app)
+
+/* tslint:disable-next-line */
+console.log('Starting server on port 3000...')
+app.listen(3000)
