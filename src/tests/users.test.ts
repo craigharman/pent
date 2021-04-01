@@ -1,8 +1,7 @@
-import { PrismaClient, User } from '@prisma/client'
-import request from 'supertest'
-
 import App from '../app'
 import { CreateUserDto } from '../dtos/users.dto'
+import { PrismaClient, User } from '@prisma/client'
+import request from 'supertest'
 
 const prisma = new PrismaClient()
 

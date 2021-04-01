@@ -1,12 +1,10 @@
-import { User } from '@prisma/client'
-import { NextFunction, Response } from 'express'
-import jwt from 'jsonwebtoken'
-
 import HttpException from '../exceptions/HttpException'
 import { DataStoredInToken, RequestWithUser } from '../interfaces/auth.interface'
 import UserService from '../services/users.service'
+import { NextFunction, Response } from 'express'
+import jwt from 'jsonwebtoken'
 
-const authMiddleware = async (req: RequestWithUser, res: Response, next: NextFunction) => {
+const authMiddleware = async (req: RequestWithUser, res: Response, next: NextFunction): Promise<void> => {
 	try {
 		const users = new UserService()
 		const cookies = req.cookies

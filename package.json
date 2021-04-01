@@ -5,24 +5,32 @@
   "scripts": {
     "start": "npm run build && node ./dist/server.js",
     "build": "npm run clean && npm run lint && npm run swagger-gen && npm run routes-gen && tsc && npm run copy-swagger-ui",
-    "lint": "eslint ./src/**/*.ts --fix",
+    "lint": "eslint ./src/**/*.ts",
     "clean": "rimraf dist",
     "swagger-gen": "tsoa swagger",
     "routes-gen": "tsoa routes",
     "copy-swagger-ui": "ncp ./src/swagger-ui ./dist/swagger-ui",
-    "tsoa": "tsoa"
+    "tsoa": "tsoa",
+    "prisma:init": "prisma init",
+    "prisma:migrate": "prisma migrate dev --preview-feature",
+    "prisma:generate": "prisma generate"
   },
-  "author": "Luke Autry <lukeautry@gmail.com> (http://www.lukeautry.com)",
+  "author": "Craig Harman <craig@craigharman.com> (https://www.craigharman.com)",
   "license": "MIT",
+  "prisma": {
+    "schema": "src/prisma/schema.prisma"
+  },
   "dependencies": {
+    "@prisma/client": "^2.20.1",
+    "bcrypt": "^5.0.1",
     "body-parser": "^1.15.2",
     "eslint": "^7.23.0",
     "express": "^4.14.0",
+    "jsonwebtoken": "^8.5.1",
     "method-override": "^3.0.0",
     "tsoa": "^2.4.11"
   },
   "devDependencies": {
-    "@trivago/prettier-plugin-sort-imports": "^2.0.1",
     "@types/body-parser": "1.17.1",
     "@types/express": "^4.0.30",
     "@types/method-override": "0.0.31",
@@ -32,6 +40,7 @@
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-prettier": "^3.3.1",
     "ncp": "^2.0.0",
+    "prisma": "^2.20.1",
     "rimraf": "^3.0.0",
     "typescript": "3.5.3"
   },

@@ -1,7 +1,6 @@
-import { Get, Route } from 'tsoa'
-
 import { TestAccount } from '../models/account'
 import { User } from '../models/user'
+import { Get, Route } from 'tsoa'
 
 @Route('Accounts')
 export class AccountsController {

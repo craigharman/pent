@@ -1,12 +1,10 @@
-import { User } from '@prisma/client'
-import bcrypt from 'bcrypt'
-import jwt from 'jsonwebtoken'
-
 import { CreateUserDto } from '../dtos/users.dto'
 import HttpException from '../exceptions/HttpException'
 import { DataStoredInToken, TokenData } from '../interfaces/auth.interface'
 import { isEmpty } from '../utils/util'
 import UserService from './users.service'
+import { User } from '@prisma/client'
+import jwt from 'jsonwebtoken'
 
 class AuthService {
 	public users = new UserService()
@@ -17,7 +15,6 @@ class AuthService {
 		const findUser: User = await this.users.findUserByEmail(userData.email)
 		if (findUser) throw new HttpException(409, `You're email ${userData.email} already exists`)
 
-		const hashedPassword = await bcrypt.hash(userData.password, 10)
 		const createUserData: Promise<User> = this.users.createUser(userData)
 
 		return createUserData

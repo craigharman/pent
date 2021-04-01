@@ -1,6 +1,5 @@
-import { Body, Delete, Example, Get, Patch, Post, Route } from 'tsoa'
-
 import { User, UserCreateRequest, UserUpdateRequest } from '../models/user'
+import { Body, Delete, Example, Get, Patch, Post, Route } from 'tsoa'
 
 @Route('Users')
 export class UsersController {

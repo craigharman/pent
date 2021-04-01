@@ -1,14 +1,13 @@
-import { User } from '@prisma/client'
-import { NextFunction, Request, Response } from 'express'
-import { Controller, Route, Post, Tags } from 'tsoa'
-
 import { CreateUserDto } from '../dtos/users.dto'
 import { RequestWithUser } from '../interfaces/auth.interface'
 import AuthService from '../services/auth.service'
+import { User } from '@prisma/client'
+import { NextFunction, Request, Response } from 'express'
+import { Route, Post, Tags } from 'tsoa'
 
 @Route('HelloWorld') // route name => localhost:xxx/helloWorld
 @Tags('AuthController') // => Under HelloWorldController tag
-class AuthController extends Controller {
+class AuthController {
 	public authService = new AuthService()
 
 	@Post('/signup') //specify the request type
